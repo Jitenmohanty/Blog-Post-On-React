@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { firestore } from '../firebase';
 
 export default function CreatePost() {
     const [title, setTitle] = useState();
@@ -6,13 +7,22 @@ export default function CreatePost() {
     const [content, setContent] = useState();
   
     function handleSubmit(e) {
+      //Page Not automatic reload When form Submit.
       e.preventDefault();
   
       console.log('title', title);
       console.log('subTitle', subTitle);
       console.log('content', content);
+
+      firestore.collection('posts').add({
+        title: title,
+        content: content,
+        subTitle: subTitle,
+        createdAt: new Date(),
+      });
     }
-  
+
+
     return (
       <div className="create-post">
         <h1>Create Post</h1>
