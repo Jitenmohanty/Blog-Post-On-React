@@ -6,8 +6,11 @@ export default function PostDetails() {
     const [post,setPost] = useState({});
     const {postId} = useParams();
     useEffect(()=>{
-      firestore.collection.doc(postId)
-    })
+      firestore.collection('posts').doc(postId).get().then((snapshot)=>{
+        console.log('snapshot',snapshot.data());
+        setPost(snapshot.data())
+      })
+    }, [])
   return (
     <div className='post-detail'>
         <h1>{post.title}</h1>

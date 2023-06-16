@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { firestore } from '../firebase';
 import { useFormInput } from '../hooks';
 
+import classes from './Button.module.css'
+
 export default function CreatePost() {
     const title = useFormInput('');
     const subTitle = useFormInput('');
@@ -26,8 +28,10 @@ export default function CreatePost() {
 
     return (
       <div className="create-post">
-        <h1>Create Post</h1>
-  
+        <h1 style={style.heading}>Create Post</h1>
+      
+        <button className={classes.createPostBtn}>ItWorks?</button>
+
         <form onSubmit={handleSubmit}>
           <div className="form-field">
             <label>Title</label>
@@ -48,8 +52,14 @@ export default function CreatePost() {
             ></textarea>
           </div>
   
-          <button className="create-post-btn">Create Post</button>
+          <button className={classes.createPostBtn}>Create Post</button>
         </form>
       </div>
   )
+}
+
+const style={
+  heading:{
+    backgroundColor:'yellowgreen'
+  }
 }
