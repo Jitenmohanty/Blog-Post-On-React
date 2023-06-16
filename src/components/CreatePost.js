@@ -1,8 +1,13 @@
 import React, {useState} from 'react';
 import { firestore } from '../firebase';
 import { useFormInput } from '../hooks';
-
+import styled from 'styled-components';
 import classes from './Button.module.css'
+
+const BlogHeading = style.h1`
+    text-align: center;
+
+`
 
 export default function CreatePost() {
     const title = useFormInput('');
@@ -30,7 +35,6 @@ export default function CreatePost() {
       <div className="create-post">
         <h1 style={style.heading}>Create Post</h1>
       
-        <button className={classes.createPostBtn}>ItWorks?</button>
 
         <form onSubmit={handleSubmit}>
           <div className="form-field">
