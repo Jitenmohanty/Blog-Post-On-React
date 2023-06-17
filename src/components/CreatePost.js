@@ -4,10 +4,10 @@ import { useFormInput } from '../hooks';
 import styled from 'styled-components';
 import classes from './Button.module.css'
 
-const BlogHeading = style.h1`
+const BlogHeading = styled.h1`
     text-align: center;
-
-`
+    background-color:yellowgreen;
+`;
 
 export default function CreatePost() {
     const title = useFormInput('');
@@ -33,7 +33,7 @@ export default function CreatePost() {
 
     return (
       <div className="create-post">
-        <h1 style={style.heading}>Create Post</h1>
+        <BlogHeading>Create Post</BlogHeading>
       
 
         <form onSubmit={handleSubmit}>
@@ -62,8 +62,8 @@ export default function CreatePost() {
   )
 }
 
-const style={
-  heading:{
-    backgroundColor:'yellowgreen'
-  }
-}
+// const style={
+//   heading:{
+//     backgroundColor:'yellowgreen'
+//   }
+// }

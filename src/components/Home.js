@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { firestore } from '../firebase';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const BlogHeading = styled.h1`
+    text-align: center;
+    background-color:yellowgreen;
+`;
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -19,7 +25,7 @@ export default function Home() {
   }, [])
   return (
     <div className='home'>
-      <h1>Tech Blogs</h1>
+      <BlogHeading>Tech Blogs</BlogHeading>
       <div id='blog-by'>JITU</div>
 
       {posts.map((post, index) => (
