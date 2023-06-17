@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { firestore } from '../firebase';
 import { useFormInput } from '../hooks';
-import styled from 'styled-components';
+import styled , {css} from 'styled-components';
 // import classes from './Button.module.css'
 
 const BlogHeading = styled.h1`
@@ -18,6 +18,11 @@ const ButtonStyle = styled.button`
     font-size: 15px;
     border-radius: 3px;
     cursor: pointer;
+    ${(props) => 
+        props.primary && css `
+          border: 4px solid red;
+        `  
+    }
 `
 
 export default function CreatePost() {
