@@ -2,12 +2,23 @@ import React, {useState} from 'react';
 import { firestore } from '../firebase';
 import { useFormInput } from '../hooks';
 import styled from 'styled-components';
-import classes from './Button.module.css'
+// import classes from './Button.module.css'
 
 const BlogHeading = styled.h1`
     text-align: center;
     background-color:yellowgreen;
 `;
+
+const ButtonStyle = styled.button`
+    height: 33px;
+    background: ${(props) => (props.primary ? 'blue' :'yellow')};
+    border: 0;
+    color: #fff;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+`
 
 export default function CreatePost() {
     const title = useFormInput('');
@@ -56,7 +67,7 @@ export default function CreatePost() {
             ></textarea>
           </div>
   
-          <button className={classes.createPostBtn}>Create Post</button>
+          <ButtonStyle primary>Create Post</ButtonStyle>
         </form>
       </div>
   )
